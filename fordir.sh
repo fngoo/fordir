@@ -19,5 +19,6 @@ i=$((i+1))
 
 done
 cat /root/script/3_httprobe/exe.sh | parallel --jobs 0 --delay 0.6 --retries 1 --timeout 600
+cat $output/5_dir/*.txt > $output/5_dir_all.txt ; rm $output/5_dir -r
 rm /root/script/3_httprobe/exe.sh
 rm /root/script/3_httprobe/dir_* -r
