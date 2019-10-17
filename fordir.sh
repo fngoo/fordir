@@ -21,5 +21,12 @@ i=$((i+1))
 done
 cat /root/script/3_httprobe/exe.sh | parallel --jobs 0 --delay 0.6 --retries 1 --timeout 600
 cat $output/5_dir/*.txt > $output/5_dir_all.txt ; rm $output/5_dir -r
+grep -oP  "http.*" $output/5_dir_all.txt > $output/5_dir_all1.txt ; rm $output/5_dir_all.txt
+#Eyewitness
+mkdir $output/5_dir
+cd /root/script/4_getjs/EyeWitness
+python3 EyeWitness.py -f $output/5_dir_all1.txt --web --no-prompt -d $output/5_dir
+mv $output/5_dir_all1.txt $output/5_dir
+
 rm /root/script/3_httprobe/exe.sh
 rm /root/script/3_httprobe/dir_* -r
