@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir $output/5_dir
 i=1
 echo '#!/bin/bash' >> /root/script/3_httprobe/exe.sh
 
