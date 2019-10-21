@@ -32,3 +32,4 @@ mv $output/5_dir_all1.txt $output/5_dir
 
 rm /root/script/3_httprobe/exe.sh
 rm /root/script/3_httprobe/dir_* -r
+data >> /root/date.txt
