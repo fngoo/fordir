@@ -8,7 +8,9 @@ num=1
 for line in `cat $var`
 
 do
-cd /root/script/5_dir/dirsearch ; python3 dirsearch.py  -u http://$line -e * -w dict_mode_dict.txt --timeout=6 --max-retries=1 --plain-text-report=$output/5_dir/$line.txt# ; sed -e "/0B/d" $output/5_dir/$line.txt >> sed.txt ; for dir in `cat sed.txt`; do a=`echo $dir | grep -oP "http.*" | sed "s/.$//"` ; if  [ "$a" = "$line" ]; then sed "/$dir/d" sed.txt > tem.txt ; mv tem.txt $output/5_dir/$line.txt; fi; done
+cd /root/script/5_dir/dirsearch ; python3 dirsearch.py  -u http://$line -e * -w dict_mode_dict.txt --timeout=6 --max-retries=1 --plain-text-report=$output/5_dir/$line.txt
+done
+# ; sed -e "/0B/d" $output/5_dir/$line.txt >> sed.txt ; for dir in `cat sed.txt`; do a=`echo $dir | grep -oP "http.*" | sed "s/.$//"` ; if  [ "$a" = "$line" ]; then sed "/$dir/d" sed.txt > tem.txt ; mv tem.txt $output/5_dir/$line.txt; fi; done
 #mkdir /root/script/3_httprobe/dir_$i
 #echo '#!/bin/bash' >> /root/script/3_httprobe/dir_$i/${i}.sh
 #echo "cp -r /root/script/5_dir/dirsearch/* /root/script/3_httprobe/dir_$i" >> /root/script/3_httprobe/dir_$i/${i}.sh
