@@ -27,17 +27,18 @@ done
 cd $output ; cat $output/5_dir/*.txt >> $output/5_dir_all.txt ; rm -rf $output/5_dir
 #grep -oP  "http.*" $output/5_dir_all.txt > $output/5_dir_all1.txt ; rm $output/5_dir_all.txt
 #Eyewitness
-#mkdir $output/5_dir
-#cd /root/script/4_getjs/EyeWitness
-#python3 EyeWitness.py -f $output/5_dir_all1.txt --web --no-prompt -d $output/5_dir
-#mv $output/5_dir_all1.txt $output/5_dir
+mkdir $output/5_dir
+cd /root/script/4_getjs/EyeWitness
+grep -oP "http.*" $output/5_dir_all.txt >> $output/5_dir_all1.txt
+python3 EyeWitness.py -f $output/5_dir_all1.txt --web --no-prompt -d $output/5_dir
+rm $output/5_dir_all1.txt
 
 #rm /root/script/3_httprobe/exe.sh
 rm /root/script/3_httprobe/dir_* -r
 date "+%Y-%m-%d_%H:%M:%S" >> /root/date.txt ; echo 'fordir' >> /root/date.txt
 cd $output
 rm git_hog.txt
-for file in `ls`
+for file in `ls | grep txt`
 do
 line=`cat $file | wc -l`
 if [ $line -eq 0 ]
