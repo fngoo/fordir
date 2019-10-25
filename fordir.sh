@@ -34,6 +34,7 @@ cd $output ; cat $output/5_dir/*.txt >> $output/5_dir_all.txt ; rm -rf $output/5
 rm /root/script/3_httprobe/dir_* -r
 date "+%Y-%m-%d_%H:%M:%S" >> /root/date.txt ; echo 'fordir' >> /root/date.txt
 cd $output
+rm git_hog.txt
 for file in `ls`
 do
 line=`cat $file | wc -l`
