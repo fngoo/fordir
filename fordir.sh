@@ -33,3 +33,10 @@ cat $output/5_dir/*.txt > $output/5_dir_all.txt ; rm $output/5_dir -r
 #rm /root/script/3_httprobe/exe.sh
 rm /root/script/3_httprobe/dir_* -r
 date "+%Y-%m-%d_%H:%M:%S" >> /root/date.txt ; echo 'fordir' >> /root/date.txt
+for file in `ls $output`
+do
+if [ -s $output/$file ]
+then
+rm $output/$file
+fi
+done
