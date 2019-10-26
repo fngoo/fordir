@@ -14,6 +14,7 @@ done
 cd $output ; cat $output/5_dir/*.txt >> $output/5_dir_all.txt ; rm -rf $output/5_dir
 grep -oP  "http.*" $output/5_dir_all.txt > $output/5_dir_all1.txt ; rm $output/5_dir_all.txt
 vl $output/5_dir_all1.txt | grep -v "\[50" | grep -oP "http.*" >> $output/5_dir_all.txt ; rm $output/5_dir_all1.txt
+sort -u $output/5_dir_all.txt -o $output/5_dir_all.txt
 
 
 
