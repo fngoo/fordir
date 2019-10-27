@@ -10,7 +10,7 @@ for line in `cat $var`
 do
 cd /root/script/5_dir/dirsearch ; python3 dirsearch.py  -u http://$line -e * -w dict_mode_dict.txt -t 100 --timeout=6 --max-retries=1 --plain-text-report=$output/5_dir/$line.txt
 grep -oP  "http.*" $output/5_dir/$line.txt > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt
-vl $output/5_dir/$line.txt | grep -v "\[50" | grep -oP "http.*" > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt
+vl $output/5_dir/$line.txt | grep -v "\[50" | grep -oP "http.*" > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt ; sort -u $output/5_dir/$line.txt -o $output/5_dir/$line.txt
 done
 
 cd $output/5_dir
