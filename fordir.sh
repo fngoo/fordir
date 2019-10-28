@@ -9,7 +9,7 @@ for line in `cat $var`
 
 do
 cd /root/script/5_dir/dirsearch
-echo "python3 dirsearch.py  -u http://$line -e * -w dict_mode_dict.txt --timeout=2 --plain-text-report=$output/5_dir/$line.txt" > 1.sh ; timeout 266 bash 1.sh ; rm 1.sh
+python3 dirsearch.py  -u http://$line -e * -w dict_mode_dict.txt --timeout=2 --plain-text-report=$output/5_dir/$line.txt
 grep -oP  "http.*" $output/5_dir/$line.txt > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt
 vl $output/5_dir/$line.txt | grep -v "\[50" | grep -oP "http.*" > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt ; sort -u $output/5_dir/$line.txt -o $output/5_dir/$line.txt
 done
