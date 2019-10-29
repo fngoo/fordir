@@ -18,8 +18,8 @@ cd $output/5_dir
 a=`ls`
 for dir in $a
 do
-num=`wc -l $dir`
-if [ $num -gt 20 ]
+num=`cat $dir | wc -l`
+if [ "$num" > "20" ]
 then
 rm $dir
 fi
