@@ -30,6 +30,12 @@ vl $output/5_dir_all1.txt | grep -v "\[50" | grep -oP "http.*" >> $output/5_dir_
 sort -u $output/5_dir_all.txt -o $output/5_dir_all.txt
 
 #Eyewitness
+cd /root/script/4_getjs
+rm -r EyeWitness
+cd /root/script/4_getjs
+git clone https://github.com/FortyNorthSecurity/EyeWitness
+cd EyeWitness/setup ; bash setup.sh ; bash setup.sh ; pip3 install --upgrade pyasn1-modules
+cd ../
 mkdir $output/5_dir
 cd /root/script/4_getjs/EyeWitness
 python3 EyeWitness.py -f $output/5_dir_all.txt --web --no-prompt -d $output/5_dir
