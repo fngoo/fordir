@@ -55,6 +55,6 @@ then
 rm -rf $file
 fi
 done
-aws=`cat $output/2_AWS.txt | wc -l` ; if [ "$aws" = "4" ]; then rm $output/2_AWS.txt; fi
+aws=`cat $output/2_AWS.txt | wc -l` ; if [ "$aws" < "5" ]; then rm $output/2_AWS.txt; fi
 
 cd /root/script/5_dir/dirsearch
