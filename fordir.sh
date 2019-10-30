@@ -35,11 +35,12 @@ rm -r EyeWitness
 cd /root/script/4_getjs
 git clone https://github.com/FortyNorthSecurity/EyeWitness
 cd EyeWitness/setup ; bash setup.sh ; bash setup.sh ; pip3 install --upgrade pyasn1-modules
-cd ../
 mkdir $output/5_dir
 cd /root/script/4_getjs/EyeWitness
 python3 EyeWitness.py -f $output/5_dir_all.txt --web --no-prompt -d $output/5_dir
-cd $output/5_dir ; grep=`ls | grep report"
+
+cd $output/5_dir
+grep=`ls | grep report`
 if [ "$grep" = "" ]
 then
 cd $output
