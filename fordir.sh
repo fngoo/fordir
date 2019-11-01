@@ -19,7 +19,7 @@ a=`ls`
 for dir in $a
 do
 num=`cat $dir | wc -l`
-if [ "$num" > "20" ]
+if [ $num -gt 20 ]
 then
 rm $dir
 fi
