@@ -70,3 +70,4 @@ rm -rf 2_AWS.txt
 fi
 
 cd /root/script/5_dir/dirsearch
+> /root/screenlog.0
