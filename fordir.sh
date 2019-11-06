@@ -66,7 +66,7 @@ done
 aws=`cat $output/2_AWS.txt | wc -l`
 if [ $aws < 6 ]
 then
-rm -rf 2_AWS.txt
+rm 2_AWS.txt
 fi
 
 cd /root/script/5_dir/dirsearch
