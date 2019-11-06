@@ -64,7 +64,7 @@ fi
 done
 
 aws=`cat $output/2_AWS.txt | wc -l`
-if [ $aws < 6 ]
+if [ "$aws" = "3" ]
 then
 rm 2_AWS.txt
 fi
