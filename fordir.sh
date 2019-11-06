@@ -21,7 +21,7 @@ do
 num=`cat $dir | wc -l`
 if [ $num -gt 20 ]
 then
-vl -s 50 $dir | grep -v "\[50" | grep -oP "http.*" > vl.txt ; mv vl.txt $dir
+rm $dir
 fi
 done
 cd $output ; cat $output/5_dir/*.txt >> $output/5_dir_all.txt ; rm -rf $output/5_dir
