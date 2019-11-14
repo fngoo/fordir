@@ -5,6 +5,9 @@ i=1
 echo '#!/bin/bash' >> /root/script/3_httprobe/exe.sh
 
 num=1
+rm -r /root/script/5_dir/dirsearch
+cd /root/script/5_dir
+git clone https://github.com/maurosoria/dirsearch
 for line in `cat $var`
 
 do
