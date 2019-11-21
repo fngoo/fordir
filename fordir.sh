@@ -13,7 +13,7 @@ for line in `cat $var`
 
 do
 cd /root/script/5_dir/dirsearch
-echo "python3 dirsearch.py  -u http://$line -e * -w dict_mode_dict.txt -t 50 --plain-text-report=$output/5_dir/$line.txt" > time.sh ; timeout 666 bash time.sh ; rm time.sh
+echo "python3 dirsearch.py  -u http://$line -e * -w dict_mode_dict.txt -t 50 --plain-text-report=$output/5_dir/$line.txt" > time.sh ; timeout 1666 bash time.sh ; rm time.sh
 grep -oP  "http.*" $output/5_dir/$line.txt | sed "/CHANGELOG.md/d" > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt
 vl -s 50 $output/5_dir/$line.txt | grep -v "\[50" | grep -oP "http.*" > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt ; sort -u $output/5_dir/$line.txt -o $output/5_dir/$line.txt
 done
