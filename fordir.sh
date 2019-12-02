@@ -18,16 +18,6 @@ grep -oP  "http.*" $output/5_dir/$line.txt | sed "/CHANGELOG.md/d" > $output/5_d
 vl -s 50 $output/5_dir/$line.txt | grep -v "\[50" | grep -oP "http.*" > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt ; sort -u $output/5_dir/$line.txt -o $output/5_dir/$line.txt
 done
 
-cd $output/5_dir
-a=`ls`
-for dir in $a
-do
-num=`cat $dir | wc -l`
-if [ $num -gt 20 ]
-then
-rm $dir
-fi
-done
 cd $output ; cat $output/5_dir/*.txt >> $output/5_dir_all.txt ; rm -rf $output/5_dir
 grep -oP  "http.*" $output/5_dir_all.txt > $output/5_dir_all1.txt ; rm $output/5_dir_all.txt
 vl -s 50 $output/5_dir_all1.txt | grep -v "\[50" | grep -v "\[40" | grep -oP "http.*" >> $output/5_dir_all.txt ; rm $output/5_dir_all1.txt
