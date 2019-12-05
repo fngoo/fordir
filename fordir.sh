@@ -30,8 +30,10 @@ cd /root/script/4_getjs
 git clone https://github.com/FortyNorthSecurity/EyeWitness
 cd EyeWitness/setup ; bash setup.sh ; bash setup.sh ; pip3 install --upgrade pyasn1-modules
 mkdir $output/dir
+mkdir /root/z_juice/2_dir
 cd /root/script/4_getjs/EyeWitness
 python3 EyeWitness.py -f $output/5_dir_all.txt --timeout 16 --web --no-prompt -d $output/dir
+cp $output/dir/screens/* /root/z_juice/2_dir
 
 cd $output/dir
 grep=`ls | grep report`
