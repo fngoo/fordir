@@ -16,7 +16,7 @@ cd /root/script/5_dir/dirsearch
 echo "python3 dirsearch.py  -u http://$line -e * -w dict_mode_dict.txt -t 50 --plain-text-report=$output/5_dir/$line.txt" > time.sh ; timeout 1666 bash time.sh ; rm time.sh
 grep -oP  "http.*" $output/5_dir/$line.txt | sed "/CHANGELOG.md/d" > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt
 vl -t 15 -s 50 $output/5_dir/$line.txt | grep -v "\[50" | grep -oP "http.*" > $output/5_dir/$line1.txt ; mv $output/5_dir/$line1.txt $output/5_dir/$line.txt ; sort -u $output/5_dir/$line.txt -o $output/5_dir/$line.txt
-vl=`ps -a | grep bash | awk '{print $1}'`
+vl=`ps -a | grep vl | awk '{print $1}'`
 for line in $vl
 do
 kill -9 $line
@@ -26,7 +26,7 @@ done
 cd $output ; cat $output/5_dir/*.txt >> $output/5_dir_all.txt ; rm -rf $output/5_dir
 grep -oP  "http.*" $output/5_dir_all.txt > $output/5_dir_all1.txt ; rm $output/5_dir_all.txt
 vl -t 15 -s 50 $output/5_dir_all1.txt | grep -v "\[50" | grep -v "\[404" | grep -oP "http.*" >> $output/5_dir_all.txt ; rm $output/5_dir_all1.txt
-vl=`ps -a | grep bash | awk '{print $1}'`
+vl=`ps -a | grep vl | awk '{print $1}'`
 for line in $vl
 do
 kill -9 $line
